@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var shape = {
+            type: '',
+            getType: function() { return this.type}        
+            };
+
+            function Triangle(a, b, c) {
+                this.type = 'triangle';
+                this.a = a;
+                this.b = b;
+                this.c = c;
+            }
+
+            Triangle.prototype = shape;
+            Triangle.prototype.getPerimeter = function() {
+                return this.a + this.b + this.c;
+                 };
+            Triangle.prototype.constructor = Triangle;
+            var t = new Triangle (1, 2, 3);
+            console.log(t.constructor === Triangle);
+            console.log(shape.isPrototypeOf(t));
+            console.log(t.getPerimeter());
+            console.log(t.getType());
+    </script>
+</body>
+</html>
